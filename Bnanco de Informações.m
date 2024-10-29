@@ -4,14 +4,18 @@ programa {
   inteiro bag=1, bcc=1, bsn=123, i
   caracter voltar
   real saldo =20000, limite=20000, total= limite+saldo, deposito, saque
-
+  real credito[1000], debito[1000]
   funcao vetor (){
 
     para(i=1; i<=1000; i++){
 
+      credito[i] = 0.0
+
     }
 
     para(i=1;i<=1000;i++){
+
+      debito[i] = 0.0
 
     }
 
@@ -110,11 +114,18 @@ programa {
       escreva("------------------------------\n\n")
       limpa()
 
-      se(saque>saldo){
+      se(saldo<saque){
         escreva("Valor Indisponível \n\n")
       }
-      senao{
-      escreva("Saque Realizado com sucesso \n\n")
+      saque-saldo
+
+       para(inteiro i = 0; i < 1000; i++){
+          se(debito[i] == 0){
+
+          debito[i] = saque
+          pare
+      }
+
       }
       
      escreva("Deseja voltar ao meu principal s|n? ")
@@ -134,6 +145,15 @@ programa {
       escreva("Qual o valor que deseja depositar: ")
       leia(deposito)
       escreva("------------------------------\n\n")
+
+      para(inteiro i = 0; i < 1000; i++){
+      se(credito[i] == 0){
+
+        credito[i] = deposito
+        pare
+      }
+      }
+    
       
      escreva("Deseja voltar ao meu principal s|n? ")
      leia(voltar)
